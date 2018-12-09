@@ -1,12 +1,20 @@
 <template>
   <div id="app">
     <router-view/>
+    <Tabbar></Tabbar>
   </div>
 </template>
 
 <script>
+import Tabbar from './components/items/tabbar'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    Tabbar
+  },
+    beforeCreate:function(){
+    this.$router.push("/");
+  }
 }
 </script>
 
