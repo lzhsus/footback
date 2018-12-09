@@ -5,6 +5,7 @@ import MyMain from '@/components/pages/mymain'
 import Competition from '@/components/pages/Competition'
 import News from '@/components/pages/news'
 import RankingList from '@/components/pages/RankingList'
+import NavChannel from '@/components/navChannel/navChannel'
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +39,12 @@ export default new Router({
       path: '/rankinglist',
       name: 'rankinglist',
       component: RankingList
+    }
+    ,
+    {
+      path: '/navChannel',
+      name: 'navChannel',
+      component: NavChannel
     }
   ],
   mode: 'history'

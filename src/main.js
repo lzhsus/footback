@@ -6,9 +6,11 @@ import router from './router'
 import Store from './store/store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// import $ from 'zepto'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
+
 
 /* eslint-disable no-new */
 new Vue({
