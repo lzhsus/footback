@@ -14,20 +14,20 @@ export default {
   data() {
     return {
       arrSwiper: [{
-        "imgUrl":require('../../static/images/logo.png'),
+        "imgUrl":require('../../assets/logo.png'),
         "id":1,
         "name":'swiper1'
       },
       {
-        "imgUrl":require('../../static/images/logo.png'),
+        "imgUrl":require('../../assets/logo.png'),
         "id":2,
         "name":'swiper2'
       },{
-        "imgUrl":require('../../static/images/logo.png'),
+        "imgUrl":require('../../assets/logo.png'),
         "id":3,
         "name":'swiper3'
       },{
-        "imgUrl":require('../../static/images/logo.png'),
+        "imgUrl":require('../../assets/logo.png'),
         "id":4,
         "name":'swiper4'
       }]
