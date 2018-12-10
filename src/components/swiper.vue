@@ -35,11 +35,11 @@ export default {
   display: block;
   width: 70%;
   overflow: hidden;
-  height: 80px;
-  line-height: 80px;
-  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
   color: #fff;
-  padding-left: 20px;
+  padding-left: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -49,8 +49,8 @@ export default {
   transform: translateX(0);
 }
 .el-carousel__button {
-  width: 24px;
-  height: 8px;
+  width: 12px;
+  height: 4px;
   background-color: #fff;
 }
 .el-carousel__indicator.is-active button.el-carousel__button {

@@ -7,7 +7,7 @@
         </li>
       </ul>
       <div class="more" @click="navMore">
-        <router-link to="/navChannel">
+        <router-link class="toNav" to="/navChannel">
         <img src="../assets/images/icon/more-nav.png" alt srcset>
         </router-link>
       </div>
@@ -74,15 +74,15 @@ export default {
 <style scoped>
 .navheader {
   width: 100%;
-  height: 100px;
-  line-height: 100px;
+  height: 40px;
+  line-height: 40px;
   background-color: #000;
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
 }
 .show {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 ul::after {
   display: block;
@@ -96,51 +96,56 @@ ul > li {
 }
 li a {
   display: block;
-  padding: 0 10px 0 30px;
+  padding: 0 5px 0 15px;
   height: 100%;
   color: #ccc;
-  font-size: 24px;
+  font-size: 12px;
 }
 a.active {
-  font-size: 40px;
+  font-size: 20px;
   color: #fff;
 }
 .more {
   position: fixed;
   right: 0;
   top: 0;
-  height: 100px;
-  width: 100px;
+  height: 40px;
+  width: 40px;
   color: #fff;
   background-color: rgb(15, 13, 13);
   text-align: center;
-  padding: 16px 24px 20px;
+  padding:2px 6px 2px;
   box-sizing: border-box;
 }
 .more img {
   width: 100%;
   height: 100%;
 }
+.toNav{
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
 .search {
   position: absolute;
-  top: 100px;
+  top: 40px;
   left: 0;
   width: 100%;
-  height: 80px;
-  line-height: 80px;
-  padding-left: 80px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 40px;
   background-color: rgb(0, 0, 0);
   opacity: 0.9;
   color: #999;
   z-index: 999;
-  font-size: 24px;
+  font-size: 12px;
 }
 .search img {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  top: 10px;
-  left: 16px;
+  top: 5px;
+  left: 8px;
 }
 </style>
 
