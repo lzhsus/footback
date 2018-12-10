@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <Tabbar></Tabbar>
+    <Tabbar v-show="$route.meta.showFooter"></Tabbar>
   </div>
 </template>
 
@@ -9,6 +9,9 @@
 import Tabbar from './components/items/tabbar'
 export default {
   name: 'App',
+  data(){
+    return{}
+  },
   components:{
     Tabbar
   },

@@ -6,6 +6,8 @@ import Competition from '@/components/pages/Competition'
 import News from '@/components/pages/news'
 import RankingList from '@/components/pages/RankingList'
 import NavChannel from '@/components/navChannel/navChannel'
+import YingTeam from "@/components/items/yingTeam"
+import ZhongTeam from "@/components/items/zhongTeam"
 Vue.use(Router)
 
 export default new Router({
@@ -13,39 +15,85 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta:{
+        index:0,
+        showFooter:true
+      }
     },
     {
       path: '/competition',
       name: 'competition',
-      component: Competition
+      component: Competition,
+      meta:{
+        index:0,
+        showFooter:true
+      }
     },
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      meta:{
+        index:0,
+        showFooter:true
+      }
     },
     {
       path: '/mymain',
       name: 'mymain',
-      component: MyMain
+      component: MyMain,
+      meta:{
+        index:0,
+        showFooter:true
+      }
     },
     {
       path: '/news',
       name: 'news',
-      component: News
+      component: News,
+      meta:{
+        index:0,
+        showFooter:true
+      }
     },
     {
       path: '/rankinglist',
       name: 'rankinglist',
-      component: RankingList
+      component: RankingList,
+      meta:{
+        index:0,
+        showFooter:true
+      }
     }
     ,
     {
       path: '/navChannel',
       name: 'navChannel',
-      component: NavChannel
-    }
+      component: NavChannel,
+      meta:{
+        index:1,
+        showFooter:false
+      }
+    },
+    {
+      path: '/yingTeam',
+      name: 'yingTeam',
+      component: YingTeam,
+      meta:{
+        index:1,
+        showFooter:false
+      }
+    },
+    {
+      path: '/zhongTeam',
+      name: 'zhongTeam',
+      component: ZhongTeam,
+      meta:{
+        index:1,
+        showFooter:false
+      }
+    },
   ],
   mode: 'history'
 })

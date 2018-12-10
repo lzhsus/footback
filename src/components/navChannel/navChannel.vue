@@ -17,6 +17,7 @@ export default {
   name: "navChannel",
   data() {
     return {
+      tabFlag:false,
       mychannel:[
         {"tit":'热门',"id":'0'},
          {"tit":'热门',"id":'2'},
