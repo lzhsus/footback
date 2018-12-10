@@ -7,7 +7,7 @@
         </li>
       </ul>
       <div class="more" @click="navMore">
-        <router-link to="/navChannel">
+        <router-link class="toNav" to="/navChannel">
         <img src="../assets/images/icon/more-nav.png" alt srcset>
         </router-link>
       </div>
@@ -114,12 +114,17 @@ a.active {
   color: #fff;
   background-color: rgb(15, 13, 13);
   text-align: center;
-  padding: 0px 6px 5px;
+  padding:2px 6px 2px;
   box-sizing: border-box;
 }
 .more img {
   width: 100%;
   height: 100%;
+}
+.toNav{
+  display: inline-block;
+  height: 100%;
+  width: 100%;
 }
 .search {
   position: absolute;
