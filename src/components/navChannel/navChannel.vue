@@ -63,12 +63,10 @@ export default {
       var selectIDlistMy = store.fetchIDlist("newlist") || []; //读取
       // 删除本地存储 mylist
       store.removeIDlist("mylist");
-      var mynewArr = [];
-
+      var mynewArr = []
       for (var i = 0; i < this.mychannel.length; i++) {
         var index = i;
         if (this.mychannel[i].id != parseInt(id)) {
-          console.log(i);
           mynewArr.push(this.mychannel[i]);
         } else {
           selectIDlistMy.push(this.mychannel[i]);
