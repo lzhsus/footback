@@ -1,14 +1,19 @@
 <template>
   <div :class="isShow?'show':''">
     <div class="navheader">
-      <ul :style='"width:"+navWidth+"px"'>
-        <li v-for="(item, index) in navBars" :key="index" @click="setChange(index)">
+      <ul :style="'width:'+navWidth+'px'">
+        <li
+          style="float: left;height: 100%"
+          v-for="(item, index) in navBars"
+          :key="index"
+          @click="setChange(index)"
+        >
           <a :class="{active:index==navIndex}" href="#">{{item.tit}}</a>
         </li>
       </ul>
       <div class="more" @click="navMore">
         <router-link class="toNav" to="/navChannel">
-        <img src="../assets/images/icon/more-nav.png" alt srcset>
+          <img src="../assets/images/icon/more-nav.png" alt srcset>
         </router-link>
       </div>
     </div>
@@ -20,28 +25,15 @@
 </template>
 <script>
 // import $ from 'zepto'
+import store from "../store/store";
 export default {
   name: "navheaderbar",
   data() {
     return {
-      navBars: [
-        { tit: "热门", sel: "false"},
-        { tit: "英超", sel: "false"},
-        { tit: "意超", sel: "false" },
-        { tit: "西超", sel: "false" },
-        { tit: "中超", sel: "false" },
-        { tit: "德超", sel: "false" },
-        { tit: "法超", sel: "false"},
-        { tit: "严州杯", sel: "false"},
-          { tit: "欧冠", sel: "false"},
-        { tit: "欧联", sel: "false"},
-         { tit: "国足", sel: "false"},
-          { tit: "亚冠", sel: "false"},
-        { tit: "国际足球", sel: "false"}
-      ],
+      navBars: [],
       vule: "这是搜索跳转",
       navIndex: 0,
-      navWidth:0
+      navWidth: 1000
     };
   },
   props: ["isShow"],
@@ -51,23 +43,57 @@ export default {
       this.navIndex = index;
     },
     // 跳转到搜索按钮
-    searchInput(){
-      console.log("搜索按钮")
+    searchInput() {
+      console.log("搜索按钮");
     },
     // 选择自定义 频道
-    navMore(){
-      console.log("频道")
-      this.$router.resolve({path: './navChannel/navChannel'});
+    navMore() {
+      console.log("频道");
+      this.$router.resolve({ path: "./navChannel/navChannel" });
     }
   },
   mounted() {
-    var num=0
-    var number=parseInt(Math.random()*$('li').length)
-    for(var i=0;i<$('li').length;i++){
-      num+=($('li')[i].clientWidth+20)
+    var selectIDlistMy = store.fetchIDlist("mylist") || []; //读取
+    // selectIDlistMy.concat=this.navBars
+    if (selectIDlistMy.length == 0) {
+      store.saveIDlist(
+        [
+          { tit: "热门", sel: "false", id: "1" },
+          { tit: "英超", sel: "false", id: "2" },
+          { tit: "意超", sel: "false", id: "3" },
+          { tit: "西超", sel: "false", id: "4" },
+          { tit: "中超", sel: "false", id: "5" },
+          { tit: "德超", sel: "false", id: "6" },
+          { tit: "法超", sel: "false", id: "7" },
+          { tit: "严州杯", sel: "false", id: "8" },
+          { tit: "欧冠", sel: "false", id: "9" },
+          { tit: "欧联", sel: "false", id: "10" },
+          { tit: "国足", sel: "false", id: "11" },
+          { tit: "亚冠", sel: "false", id: "12" },
+          { tit: "国际足球", sel: "false", id: "13" },
+          { tit: "西甲", sel: "false", id: "14" },
+          { tit: "中甲", sel: "false", id: "15" },
+          { tit: "足协杯", sel: "false", id: "16" },
+          { tit: "意甲", sel: "false", id: "17" },
+          { tit: "德甲", sel: "false", id: "18" }
+        ],
+        "mylist"
+      ); //保存
+      var selectIDlistMy = store.fetchIDlist("mylist"); //读取
+      this.navBars = selectIDlistMy;
+    } else {
+      this.navBars = selectIDlistMy;
     }
-    this.navWidth=num+20
-    this.vule=this.navBars[number].tit
+
+    var num = 0;
+    var number = parseInt(Math.random() * $("li").length);
+    // for (var i = 0; i < $("li").length; i++) {
+
+    //   num +=$($("li")[i]).clientWidth + 17;
+    //   console.log(num)
+    // }
+    // this.navWidth = num;
+    this.vule = this.navBars[number].tit;
   }
 };
 </script>
@@ -114,14 +140,14 @@ a.active {
   color: #fff;
   background-color: rgb(15, 13, 13);
   text-align: center;
-  padding:2px 6px 2px;
+  padding: 0px 6px 6px;
   box-sizing: border-box;
 }
 .more img {
   width: 100%;
   height: 100%;
 }
-.toNav{
+.toNav {
   display: inline-block;
   height: 100%;
   width: 100%;
