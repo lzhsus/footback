@@ -44,12 +44,30 @@ export default {
   name: "navChannel",
   data() {
     return {
+
       mychannel: [],
       mychannelTit: "我的频道",
       mychannelTowTit: "拖拽可以排序",
       newchannelTit: "频道推荐",
       newchannelTowTit: "点击添加频道",
       newchannel: []
+
+      tabFlag:false,
+      mychannel:[
+        {"tit":'热门',"id":'0'},
+         {"tit":'热门',"id":'2'},
+          {"tit":'热门',"id":'3'},
+           {"tit":'热门',"id":'4'},
+            {"tit":'热门',"id":'5'},
+             {"tit":'热门',"id":'6'},
+              {"tit":'热门',"id":'7'},
+               {"tit":'热门',"id":'8'},
+                {"tit":'热门',"id":'9'},
+      ],
+      mychannelTit:'我的频道',
+      mychannelTowTit:'拖拽可以排序',
+      newchannel:[]
+
     };
   },
   methods: {
