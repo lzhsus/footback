@@ -1,8 +1,8 @@
 <template>
   <div>
-      <div>
-          <el-button class="roundBtn"  round type="text" @click="finish()">完成</el-button>
-      </div>
+    <div>
+      <el-button class="roundBtn" round type="text" @click="finish()">完成</el-button>
+    </div>
     <div class="teamBtn" v-for="(item,index) in yingArr" :key="index">
       <div class="btnLeft">
         <img :src="item.imgUlr" alt>
@@ -48,9 +48,11 @@ import Pig20 from "../../assets/images/yingchao/southhampton.png";
 export default {
   data() {
     return {
-      chooseArr: [],
+      arrList:[],
+      teamList:[],
       yingArr: [
         {
+          id:1,
           imgUlr: Pig01,
           name: "阿森纳",
           enname: "Arsenal",
@@ -60,6 +62,7 @@ export default {
           btnFlag: true
         },
         {
+          id:2,
           imgUlr: Pig02,
           name: "伯恩茅斯",
           enname: "Bournemouth",
@@ -69,6 +72,7 @@ export default {
           btnFlag: true
         },
         {
+          id:3,
           imgUlr: Pig03,
           name: "布莱顿",
           enname: "	Brighton Hove Albion",
@@ -78,6 +82,7 @@ export default {
           btnFlag: true
         },
         {
+          id:4,
           imgUlr: Pig04,
           name: "伯恩利",
           enname: "Burnley",
@@ -87,6 +92,7 @@ export default {
           btnFlag: true
         },
         {
+          id:5,
           imgUlr: Pig05,
           name: "	卡迪夫城",
           enname: "Cardiff City",
@@ -96,6 +102,7 @@ export default {
           btnFlag: true
         },
         {
+          id:6,
           imgUlr: Pig06,
           name: "切尔西",
           enname: "Chelsea",
@@ -105,6 +112,7 @@ export default {
           btnFlag: true
         },
         {
+          id:7,
           imgUlr: Pig07,
           name: "水晶宫",
           enname: "Crystal Palace",
@@ -115,6 +123,7 @@ export default {
         },
 
         {
+          id:8,
           imgUlr: Pig08,
           name: "埃弗顿",
           enname: "Everton",
@@ -124,6 +133,7 @@ export default {
           btnFlag: true
         },
         {
+          id:9,
           imgUlr: Pig09,
           name: "托特纳姆热刺",
           enname: "Tottenham Hotspur",
@@ -133,6 +143,7 @@ export default {
           btnFlag: true
         },
         {
+          id:10,
           imgUlr: Pig10,
           name: "哈德斯菲尔德",
           enname: "Huddersfield Town",
@@ -142,6 +153,7 @@ export default {
           btnFlag: true
         },
         {
+          id:11,
           imgUlr: Pig11,
           name: "莱切斯特城",
           enname: "Leicester City",
@@ -151,6 +163,7 @@ export default {
           btnFlag: true
         },
         {
+          id:12,
           imgUlr: Pig12,
           name: "利物浦",
           enname: "Liverpool",
@@ -160,6 +173,7 @@ export default {
           btnFlag: true
         },
         {
+          id:13,
           imgUlr: Pig13,
           name: "曼彻斯特城",
           enname: "Manchester City",
@@ -169,6 +183,7 @@ export default {
           btnFlag: true
         },
         {
+          id:14,
           imgUlr: Pig14,
           name: "沃特福德",
           enname: "Watford",
@@ -178,6 +193,7 @@ export default {
           btnFlag: true
         },
         {
+          id:15,
           imgUlr: Pig15,
           name: "西汉姆联",
           enname: "West Ham United",
@@ -187,6 +203,7 @@ export default {
           btnFlag: true
         },
         {
+          id:16,
           imgUlr: Pig16,
           name: "狼队",
           enname: "Wolverhampton",
@@ -196,6 +213,7 @@ export default {
           btnFlag: true
         },
         {
+          id:17,
           imgUlr: Pig17,
           name: "曼彻斯特联",
           enname: "Manchester United",
@@ -205,6 +223,7 @@ export default {
           btnFlag: true
         },
         {
+          id:18,
           imgUlr: Pig18,
           name: "纽卡斯尔联",
           enname: "Newcastle United",
@@ -214,6 +233,7 @@ export default {
           btnFlag: true
         },
         {
+          id:19,
           imgUlr: Pig19,
           name: "富勒姆",
           enname: "	Fulham",
@@ -223,6 +243,7 @@ export default {
           btnFlag: true
         },
         {
+          id:20,
           imgUlr: Pig20,
           name: "南安普敦",
           enname: "Southampton",
@@ -237,12 +258,30 @@ export default {
   methods: {
     sel: function(index) {
       this.yingArr[index].btnFlag = !this.yingArr[index].btnFlag;
-      this.chooseArr.push(this.yingArr[index].name);
-      console.log(this.chooseArr);
+      var arr=[];
+      arr={
+        id:this.yingArr[index].id,
+        name:this.yingArr[index].name
+      }
+      console.log(arr)
+      // arrList=sessionStorage.getItem("teamList")
+      if (!this.yingArr[index].btnFlag) {
+        this.arrList.push(arr);
+      console.log(this.arrList);
+        sessionStorage.setItem("teamList",this.arrList);
+      } else {
+        for(let i in this.arrList){
+          if(this.arrList[i].id==arr.id){
+            this.arrList.splice(i,1);
+          }
+        }
+         sessionStorage.setItem("teamList",this.arrList);
+      }
+      console.log(teamList);
     },
-    finish(){
-        this.$emit("choose",this.chooseArr);
-        this.$router.push({path:"/news"})
+    finish() {
+      this.$emit("choose", this.chooseArr);
+      this.$router.push({ path: "/news" });
     }
   }
 };
