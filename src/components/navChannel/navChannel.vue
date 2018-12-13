@@ -50,7 +50,7 @@ export default {
       mychannelTowTit: "拖拽可以排序",
       newchannelTit: "频道推荐",
       newchannelTowTit: "点击添加频道",
-      newchannel: []
+      newchannel: [],
 
       tabFlag:false,
       mychannel:[
