@@ -1,8 +1,5 @@
 <template>
   <div>
-      <div>
-          <el-button class="roundBtn"  round type="text" @click="finish()">完成</el-button>
-      </div>
     <div class="teamBtn" v-for="(item,index) in yingArr" :key="index">
       <div class="btnLeft">
         <img :src="item.imgUlr" alt>
@@ -25,34 +22,29 @@
   </div>
 </template>
 <script>
-import Pig01 from "../../assets/images/yingchao/arsenal.png";
-import Pig02 from "../../assets/images/yingchao/bounmouth.png";
-import Pig03 from "../../assets/images/yingchao/brighton.png";
-import Pig04 from "../../assets/images/yingchao/burnley.png";
-import Pig05 from "../../assets/images/yingchao/cardiff.png";
-import Pig06 from "../../assets/images/yingchao/chelsea.png";
-import Pig07 from "../../assets/images/yingchao/crystal.png";
-import Pig08 from "../../assets/images/yingchao/everton.jpg";
-import Pig09 from "../../assets/images/yingchao/hotspur.png";
-import Pig10 from "../../assets/images/yingchao/huddersfield.png";
-import Pig11 from "../../assets/images/yingchao/leicester.png";
-import Pig12 from "../../assets/images/yingchao/liverpool.png";
-import Pig13 from "../../assets/images/yingchao/manCity.jpg";
-import Pig14 from "../../assets/images/yingchao/watford.png";
-import Pig15 from "../../assets/images/yingchao/westHam.png";
-import Pig16 from "../../assets/images/yingchao/wolves.png";
-import Pig17 from "../../assets/images/yingchao/manUnited.jpg";
-import Pig18 from "../../assets/images/yingchao/newcastle.png";
-import Pig19 from "../../assets/images/yingchao/pulham.png";
-import Pig20 from "../../assets/images/yingchao/southhampton.png";
+import Pig01 from "../../assets/images/zhongchao/fuli.png";
+import Pig02 from "../../assets/images/zhongchao/guoan.png";
+import Pig03 from "../../assets/images/zhongchao/hengda.png";
+import Pig04 from "../../assets/images/zhongchao/huaxia.jpg";
+import Pig05 from "../../assets/images/zhongchao/jianye.png";
+import Pig06 from "../../assets/images/zhongchao/luneng.png";
+import Pig07 from "../../assets/images/zhongchao/quanjian.png";
+import Pig08 from "../../assets/images/zhongchao/renhe.png";
+import Pig09 from "../../assets/images/zhongchao/shanggang.png";
+import Pig10 from "../../assets/images/zhongchao/shenhua.png";
+import Pig11 from "../../assets/images/zhongchao/siwei.png";
+import Pig12 from "../../assets/images/zhongchao/suning.png";
+import Pig13 from "../../assets/images/zhongchao/taida.png";
+import Pig14 from "../../assets/images/zhongchao/yatai.png";
+import Pig15 from "../../assets/images/zhongchao/yifang.png";
+import Pig16 from "../../assets/images/zhongchao/hengfeng.png";
 export default {
   data() {
     return {
-      chooseArr: [],
       yingArr: [
         {
           imgUlr: Pig01,
-          name: "阿森纳",
+          name: "富力",
           enname: "Arsenal",
           city: "伦敦",
           home: "酋长球场",
@@ -194,55 +186,13 @@ export default {
           home: "莫里纽克斯球场",
           time: "1877",
           btnFlag: true
-        },
-        {
-          imgUlr: Pig17,
-          name: "曼彻斯特联",
-          enname: "Manchester United",
-          city: "曼彻斯特",
-          home: "老特拉福德球场",
-          time: "1878",
-          btnFlag: true
-        },
-        {
-          imgUlr: Pig18,
-          name: "纽卡斯尔联",
-          enname: "Newcastle United",
-          city: "纽卡斯尔",
-          home: "中心球場",
-          time: "1881",
-          btnFlag: true
-        },
-        {
-          imgUlr: Pig19,
-          name: "富勒姆",
-          enname: "	Fulham",
-          city: "伦敦",
-          home: "卡雲球場",
-          time: "1879-1-1",
-          btnFlag: true
-        },
-        {
-          imgUlr: Pig20,
-          name: "南安普敦",
-          enname: "Southampton",
-          city: "修咸顿",
-          home: "德尔球场",
-          time: "1885",
-          btnFlag: true
         }
       ]
     };
   },
-  methods: {
+   methods: {
     sel: function(index) {
       this.yingArr[index].btnFlag = !this.yingArr[index].btnFlag;
-      this.chooseArr.push(this.yingArr[index].name);
-      console.log(this.chooseArr);
-    },
-    finish(){
-        this.$emit("choose",this.chooseArr);
-        this.$router.push({path:"/news"})
     }
   }
 };
@@ -259,7 +209,6 @@ export default {
   align-items: center;
   padding: 5px 10px;
   /* background-color: #28abe3; */
-  box-sizing: border-box;
 }
 .teamBtn:last-child {
   border-bottom: 1px solid #7ab2e1;
@@ -302,13 +251,4 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.roundBtn {
-  /* border-color:#fff; */
-  outline: none;
-  outline-color: rgba(255, 255, 255, 0);
-}
-/* .el-button--primary:focus, .el-button--primary:hover{
-    border-color:#fff;
-    border-radius: 20px;
-} */
 </style>

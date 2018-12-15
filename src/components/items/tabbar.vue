@@ -53,7 +53,8 @@ export default {
   padding-top:5px;
   padding-bottom:5px;
   border-top: 1px solid #ccc;
-  /* background-color:#ccc; */
+  background-color:#f7f7f7;
+  /* opacity: 0.8; */
   position: fixed;
   left: 0;
   bottom: 0;

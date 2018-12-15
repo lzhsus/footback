@@ -44,6 +44,7 @@ export default {
   name: "navChannel",
   data() {
     return {
+
       mychannel: [],
       mychannelTit: "我的频道",
       mychannelTowTit: "拖拽可以排序",
@@ -51,6 +52,7 @@ export default {
       newchannelTowTit: "点击添加频道",
       newchannel: [],
       tabFlag:false,
+
     };
   },
   methods: {
