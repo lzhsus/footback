@@ -1,7 +1,7 @@
 <template>
   <div class="mymain">
     <div class="main_top">
-      <div class="main_top_phone" @click="getPhoneMsg">
+      <div class="main_top_phone">
         <img src="../../assets/icon/saoma.png" alt>
       </div>
       <div class="main_top_set">
@@ -11,10 +11,10 @@
     </div>
     <div class="user">
       <div class="userInfo">
-        <div class="userInfo_img">
+        <div class="userInfo_img" @click="userInfo">
           <img src="../../assets/icon/main.png" alt srcset>
         </div>
-        <div class="userInfo_tit">
+        <div class="userInfo_tit"  @click="userInfo">
           <div>登录/注册</div>
           <div>登录可享受更多服务</div>
         </div>
@@ -64,6 +64,30 @@
         </div>
       </div>
     </div>
+    <!-- 个人服务 -->
+    <div class="server">
+      <div>
+        <h2>个人服务</h2>
+        <div>
+          <ul>
+            <li><img src="../../assets/icon/jingcai.png" alt="" srcset="">
+            <span>我的竞猜</span></li>
+             <li><img src="../../assets/icon/jilu.png" alt="" srcset="">
+            <span>播放记录</span></li>
+             <li><img src="../../assets/icon/dingdan.png" alt="" srcset="">
+            <span>我的订单</span></li>
+             <li><img src="../../assets/icon/guanzhu.png" alt="" srcset="">
+            <span>我的关注</span></li>
+             <li><img src="../../assets/icon/fabiao.png" alt="" srcset="">
+            <span>我的发表</span></li>
+             <li><img src="../../assets/icon/shoucang.png" alt="" srcset="">
+            <span>我的收藏</span></li>
+             <li><img src="../../assets/icon/help.png" alt="" srcset="">
+            <span>帮助反馈</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -71,11 +95,15 @@
 export default {
   name: "mymain",
   data() {
-    return {};
+    return {
+      codeUrl: "",
+      isShow: true
+    };
   },
   methods: {
-    getPhoneMsg() {
-      console.log(111);
+    userInfo(){
+
+      this.$router.resolve({ path: "../login" });
     }
   }
 };
@@ -84,7 +112,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .mymain {
-  background-color: rgb(173, 171, 171);
+  background-color: rgb(235, 230, 230);
 }
 .main_top {
   display: flex;
@@ -133,7 +161,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(61, 58, 58);
+  background-color: rgb(77, 72, 72);
   height: 80px;
   padding: 0 20px;
 }
@@ -208,5 +236,34 @@ export default {
   margin-left: 10px;
   text-align: left;
   transform: scale(0.6) translateX(-32%);
+}
+.server{
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+.server h2{
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+}
+.server li{
+  float: left;
+  width: 25%;
+  padding: 4px;
+  box-sizing: border-box
+}
+.server li img{
+  width:40px;
+  transform: translateX(70%)
+}
+.server li span{
+display: block;
+width: 100%;
+text-align:center;
+font-size: 12px;
+color: #999;
 }
 </style>

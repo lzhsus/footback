@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import store from "../../store/store";
+import store from "../../vuex/store";
 export default {
   name: "navChannel",
   data() {
@@ -49,7 +49,8 @@ export default {
       mychannelTowTit: "拖拽可以排序",
       newchannelTit: "频道推荐",
       newchannelTowTit: "点击添加频道",
-      newchannel: []
+      newchannel: [],
+      tabFlag:false,
     };
   },
   methods: {
@@ -120,7 +121,6 @@ export default {
 .chammelTop i {
   font-size: 26px;
 }
-
 .mychannel > .mytit {
   width: 100%;
   padding: 0px 20px 0;
@@ -150,7 +150,7 @@ export default {
   position: relative;
 }
 .mychannel > .myok span {
-  font-size: 18px;
+  font-size: 14px;
   color: #000;
   border: 1px solid #ccc;
   padding: 6px 20px;
@@ -164,4 +164,3 @@ export default {
   top: 14px;
 }
 </style>
-
