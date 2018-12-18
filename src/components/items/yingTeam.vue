@@ -45,7 +45,7 @@ import Pig17 from "../../assets/images/yingchao/manUnited.jpg";
 import Pig18 from "../../assets/images/yingchao/newcastle.png";
 import Pig19 from "../../assets/images/yingchao/pulham.png";
 import Pig20 from "../../assets/images/yingchao/southhampton.png";
-import store from "../../store/store";
+import store from "../../vuex/store";
 export default {
   data() {
     return {

@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import store from "../../store/store";
+import store from "../../vuex/store";
 export default {
   name: "navChannel",
   data() {

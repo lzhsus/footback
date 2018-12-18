@@ -41,7 +41,7 @@ import Pig13 from "../../assets/images/zhongchao/taida.png";
 import Pig14 from "../../assets/images/zhongchao/yatai.png";
 import Pig15 from "../../assets/images/zhongchao/yifang.png";
 import Pig16 from "../../assets/images/zhongchao/hengfeng.png";
-import store from "../../store/store";
+import store from "../../vuex/store";
 export default {
   data() {
     return {
