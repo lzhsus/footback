@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const MY_TEAMLIST="teamList" 
+
 const MY_IDLIST_KEY = 'mylist'; //定义常量保存键值
 const New_IDLIST_KEY = 'newlist'; //定义常量保存键值
 
@@ -15,9 +16,11 @@ export default {
     } else if (value == "newlist") {
       window.localStorage.setItem(New_IDLIST_KEY, JSON.stringify(data));
     }
+
     else if(value == "teamList"){
         window.localStorage.setItem(MY_TEAMLIST,JSON.stringify(data));
     }
+
   },
 
   fetchIDlist(value) {
@@ -26,9 +29,12 @@ export default {
     } else if (value == "newlist") {
       return JSON.parse(window.localStorage.getItem(New_IDLIST_KEY) || '[]');
     }
+
     else if(value == "teamList"){
         return JSON.parse(window.localStorage.getItem(MY_TEAMLIST) || '[]');
     }
+
+
   },
   removeIDlist(value){
     if (value == "mylist") {
@@ -36,8 +42,11 @@ export default {
     } else if (value == "newlist") {
       window.localStorage.removeItem('New_IDLIST_KEY')
     }
+
     else if(value == "teamList"){
         window.localStorage.removeItem("MY_TEAMLIST");
     }
+
+
   }
 }

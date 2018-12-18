@@ -1,3 +1,22 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @lzhsus
+Sign out
+ Watch 0
+ Unstar 1  Fork 1 lzhsus/footback
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+Branch: master Find file Copy path footback/src/components/NavHeaderBar.vue
+d8f630a  5 days ago
+@lzhsus lzhsus 首页频道展示
+1 contributor
+RawBlameHistory
+179 lines (173 sloc)  4.06 KB
 <template>
   <div :class="isShow?'show':''">
     <div class="navheader">
@@ -25,7 +44,7 @@
 </template>
 <script>
 // import $ from 'zepto'
-import store from "../store/store";
+import store from "../vuex/store";
 export default {
   name: "navheaderbar",
   data() {
@@ -84,11 +103,9 @@ export default {
     } else {
       this.navBars = selectIDlistMy;
     }
-
     var num = 0;
     var number = parseInt(Math.random() * $("li").length);
     // for (var i = 0; i < $("li").length; i++) {
-
     //   num +=$($("li")[i]).clientWidth + 17;
     //   console.log(num)
     // }
@@ -115,7 +132,6 @@ ul::after {
   clear: both;
   content: "";
 }
-
 ul > li {
   float: left;
   height: 100%;
@@ -176,3 +192,16 @@ a.active {
 </style>
 
 
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.

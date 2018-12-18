@@ -6,8 +6,10 @@ import Competition from '@/components/pages/Competition'
 import News from '@/components/pages/news'
 import RankingList from '@/components/pages/RankingList'
 import NavChannel from '@/components/navChannel/navChannel'
+import Login from '@/components/login'
 import YingTeam from "@/components/items/yingTeam"
 import ZhongTeam from "@/components/items/zhongTeam"
+
 Vue.use(Router)
 
 export default new Router({
@@ -70,7 +72,17 @@ export default new Router({
     {
       path: '/navChannel',
       name: 'navChannel',
+
       component: NavChannel,
+      meta:{
+        index:1,
+        showFooter:false
+      }
+    },
+    {
+      path: '/mymain/login',
+      name: 'login',
+      component: Login,
       meta:{
         index:1,
         showFooter:false
@@ -94,6 +106,7 @@ export default new Router({
         showFooter:false
       }
     },
+
   ],
   mode: 'history'
 })

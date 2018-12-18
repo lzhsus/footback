@@ -52,21 +52,9 @@ export default {
       newchannelTowTit: "点击添加频道",
       newchannel: [],
 
+
+
       tabFlag:false,
-      mychannel:[
-        {"tit":'热门',"id":'0'},
-         {"tit":'热门',"id":'2'},
-          {"tit":'热门',"id":'3'},
-           {"tit":'热门',"id":'4'},
-            {"tit":'热门',"id":'5'},
-             {"tit":'热门',"id":'6'},
-              {"tit":'热门',"id":'7'},
-               {"tit":'热门',"id":'8'},
-                {"tit":'热门',"id":'9'},
-      ],
-      mychannelTit:'我的频道',
-      mychannelTowTit:'拖拽可以排序',
-      newchannel:[]
 
     };
   },
@@ -138,7 +126,6 @@ export default {
 .chammelTop i {
   font-size: 26px;
 }
-
 .mychannel > .mytit {
   width: 100%;
   padding: 0px 20px 0;
@@ -168,7 +155,7 @@ export default {
   position: relative;
 }
 .mychannel > .myok span {
-  font-size: 18px;
+  font-size: 14px;
   color: #000;
   border: 1px solid #ccc;
   padding: 6px 20px;
@@ -182,4 +169,3 @@ export default {
   top: 14px;
 }
 </style>
-
