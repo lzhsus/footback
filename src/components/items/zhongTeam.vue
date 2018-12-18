@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="teamBtn" v-for="(item,index) in yingArr" :key="index">
+     <div>
+      <el-button class="roundBtn" round type="text" @click="finish()">完成</el-button>
+    </div>
+    <div class="teamBtn" v-for="(item,index) in zhongArr" :key="index">
       <div class="btnLeft">
         <img :src="item.imgUlr" alt>
         <span>{{item.name}}</span>
@@ -38,161 +41,219 @@ import Pig13 from "../../assets/images/zhongchao/taida.png";
 import Pig14 from "../../assets/images/zhongchao/yatai.png";
 import Pig15 from "../../assets/images/zhongchao/yifang.png";
 import Pig16 from "../../assets/images/zhongchao/hengfeng.png";
+import store from "../../vuex/store";
 export default {
   data() {
     return {
-      yingArr: [
+      arrList: [],
+      zhongArr: [
         {
+          id: 21,
           imgUlr: Pig01,
-          name: "富力",
-          enname: "Arsenal",
-          city: "伦敦",
-          home: "酋长球场",
-          time: "1886-1-1",
+          name: "广州富力",
+          enname: "Fuli FC",
+          city: "广州",
+          home: "越秀山体育场",
+          time: "1986",
           btnFlag: true
         },
         {
+          id: 22,
           imgUlr: Pig02,
-          name: "伯恩茅斯",
-          enname: "Bournemouth",
-          city: "般尼茅夫",
-          home: "健身第一球場",
-          time: "1899",
+          name: "北京国安",
+          enname: "Beijing Guoan",
+          city: "北京",
+          home: "北京工人体育场",
+          time: "	1992",
           btnFlag: true
         },
         {
+          id: 23,
           imgUlr: Pig03,
-          name: "布莱顿",
-          enname: "	Brighton Hove Albion",
-          city: "白禮頓",
-          home: "白禮頓-域夫甸球場",
-          time: "1901",
+          name: "广州恒大",
+          enname: "Evergrande FC",
+          city: "广州",
+          home: "	广州市天河体育中心",
+          time: "	2002-2-1",
           btnFlag: true
         },
         {
+          id: 24,
           imgUlr: Pig04,
-          name: "伯恩利",
-          enname: "Burnley",
-          city: "般尼",
-          home: "摩亚球场",
+          name: "河北华夏幸福",
+          enname: "Fortune FC ",
+          city: "河北",
+          home: "廊坊市体育场",
           time: "1882",
           btnFlag: true
         },
         {
+          id: 25,
           imgUlr: Pig05,
-          name: "	卡迪夫城",
-          enname: "Cardiff City",
-          city: "卡迪夫",
-          home: "利尼安公園卡迪夫球場",
-          time: "1899",
+          name: "	河南建业",
+          enname: "Jianye",
+          city: "河南郑州",
+          home: "郑州航海体育场",
+          time: "1994-1-1",
           btnFlag: true
         },
         {
+          id: 26,
           imgUlr: Pig06,
-          name: "切尔西",
-          enname: "Chelsea",
-          city: "伦敦",
-          home: "斯坦福桥球场",
-          time: "1905-3-10",
+          name: "山东鲁能",
+          enname: "Luneng",
+          city: "济南",
+          home: "济南奥体中心体育场",
+          time: "1994-03-01",
           btnFlag: true
         },
         {
+          id: 27,
           imgUlr: Pig07,
-          name: "水晶宫",
-          enname: "Crystal Palace",
-          city: "伦敦",
-          home: "塞爾赫斯特公園球場",
-          time: "1905-9-10",
+          name: "天津权健",
+          enname: "Quanjian",
+          city: "天津",
+          home: "天津奥林匹克中心体育场",
+          time: "2006",
           btnFlag: true
         },
 
         {
+          id: 28,
           imgUlr: Pig08,
-          name: "埃弗顿",
-          enname: "Everton",
-          city: "利物浦",
-          home: "葛迪遜公園球場",
-          time: "1878",
+          name: "北京人和",
+          enname: "Renhe",
+          city: "贵阳",
+          home: "贵阳奥林匹克体育场",
+          time: "	1995-2-3",
           btnFlag: true
         },
         {
+          id: 29,
           imgUlr: Pig09,
-          name: "托特纳姆热刺",
-          enname: "Tottenham Hotspur",
-          city: "伦敦",
-          home: "白鹿徑球場",
-          time: "1882",
+          name: "上海上港",
+          enname: "Shanggang",
+          city: "上海",
+          home: "上海八万人体育场",
+          time: "2005-12-25",
           btnFlag: true
         },
         {
+          id: 30,
           imgUlr: Pig10,
-          name: "哈德斯菲尔德",
-          enname: "Huddersfield Town",
-          city: "哈德斯菲爾德",
-          home: "基爾岩球場",
-          time: "1895",
+          name: "上海申花",
+          enname: "Shenhua",
+          city: "上海",
+          home: "上海虹口体育场",
+          time: "1993-12-10",
           btnFlag: true
         },
         {
+          id: 31,
           imgUlr: Pig11,
-          name: "莱切斯特城",
-          enname: "Leicester City",
-          city: "莱斯特",
-          home: "禾克斯球場",
-          time: "1884",
+          name: "重庆斯威",
+          enname: "Siwei",
+          city: "重庆",
+          home: "重庆奥林匹克体育中心",
+          time: "	1995-12-01",
           btnFlag: true
         },
         {
+          id: 32,
           imgUlr: Pig12,
-          name: "利物浦",
-          enname: "Liverpool",
-          city: "利物浦",
-          home: "安菲尔德球场",
-          time: "1892",
+          name: "江苏苏宁",
+          enname: "Suning",
+          city: "南京市",
+          home: "南京奥林匹克体育中心",
+          time: "1994-3-28",
           btnFlag: true
         },
         {
+          id: 33,
           imgUlr: Pig13,
-          name: "曼彻斯特城",
-          enname: "Manchester City",
-          city: "曼彻斯特",
-          home: "伊蒂哈德球场",
-          time: "1894",
+          name: "天津泰达",
+          enname: "Teda",
+          city: "天津",
+          home: "天津民园体育场",
+          time: "1994-01-01",
           btnFlag: true
         },
         {
+          id: 34,
           imgUlr: Pig14,
-          name: "沃特福德",
-          enname: "Watford",
-          city: "哈特福郡",
-          home: "维卡里吉路球场",
-          time: "1881",
+          name: "长春亚泰",
+          enname: "Yatai",
+          city: "长春",
+          home: "长春体育场",
+          time: "1996-6-6",
           btnFlag: true
         },
         {
+          id: 35,
           imgUlr: Pig15,
-          name: "西汉姆联",
-          enname: "West Ham United",
-          city: "伦敦",
-          home: "厄普顿公园球场",
-          time: "1895",
+          name: "大连一方",
+          enname: "Yifang",
+          city: "大连",
+          home: "金州体育场",
+          time: "2009",
           btnFlag: true
         },
         {
+          id: 36,
           imgUlr: Pig16,
-          name: "狼队",
-          enname: "Wolverhampton",
-          city: "胡佛漢頓",
-          home: "莫里纽克斯球场",
-          time: "1877",
+          name: "贵州恒丰",
+          enname: "Hengfeng",
+          city: "贵阳",
+          home: "白云区体育场",
+          time: "2005",
           btnFlag: true
         }
       ]
     };
   },
-   methods: {
+  mounted() {
+    this.arrList = store.fetchIDlist("teamList")||[];
+    console.log(this.arrList)
+    if(this.arrList.length>0){
+      for(let i in this.arrList){
+        console.log(this.arrList[i].id);
+        for(let j in this.zhongArr){
+          if(this.zhongArr[j].id==this.arrList[i].id){
+            this.zhongArr[j].btnFlag=!this.zhongArr[j].btnFlag;
+          }
+        }
+      }
+    }
+  },
+  methods: {
     sel: function(index) {
-      this.yingArr[index].btnFlag = !this.yingArr[index].btnFlag;
+      this.zhongArr[index].btnFlag = !this.zhongArr[index].btnFlag;
+      var arr = [];
+      arr = {
+        id: this.zhongArr[index].id,
+        name: this.zhongArr[index].name,
+        btnFlag:this.zhongArr[index].btnFlag
+      };
+      // console.log(arr);
+      //读取
+      if (!this.zhongArr[index].btnFlag) {
+        this.arrList.push(arr);
+        // console.log(this.arrList);
+        store.saveIDlist(this.arrList, "teamList");
+      }
+       else {
+        for(let i in this.arrList){
+          if(this.arrList[i].id==arr.id){
+            this.arrList.splice(i,1);
+          }
+        }
+        //  console.log(this.arrList);
+        store.saveIDlist(this.arrList,"teamList");
+      }
+      // store.saveIDlist(arrList,"teamList");
+    },
+    finish() {
+      this.$router.push({ path: "/news" });
     }
   }
 };

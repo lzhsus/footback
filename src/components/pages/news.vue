@@ -6,16 +6,17 @@
         <el-button round type="primary" @click="navTeam_01">英超</el-button>
         <el-button round type="primary" @click="navTeam_02">中超</el-button>
       </div>
-      <div @choose="getData" v-for="(item,index) in selArr" :key="index">{{item}}</div>
+      <div v-for="(item,index) in selTeam" :key="index">{{item.name}}</div>
     </div>
   </div>
 </template>
 <script>
+import store from "../../store/store";
 export default {
   name: "news",
   data() {
     return {
-      selArr:[]
+      selTeam:[]
     };
   },
   methods: {
@@ -25,13 +26,9 @@ export default {
     navTeam_02() {
       this.$router.push({ path: "/zhongTeam" });
     },
-    getData(arr){
-      console.log(arr)
-      this.selArr=arr;
-    }
   },
   mounted(){
-    this.getData()
+    this.selTeam=store.fetchIDlist("teamList")||[];
   }
 };
 </script>

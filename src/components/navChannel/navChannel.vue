@@ -51,6 +51,9 @@ export default {
       newchannelTit: "频道推荐",
       newchannelTowTit: "点击添加频道",
       newchannel: [],
+
+
+
       tabFlag:false,
 
     };
